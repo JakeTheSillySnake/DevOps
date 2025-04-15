@@ -1,6 +1,6 @@
 #!bin/bash
-TOKEN="7241273712:AAHuFTYJyVtdc0fjU_-i_k5_TBTMN_kt1b0"
-USER="1533600208"
+TOKEN="" # bot token removed for privacy
+USER="" # user id removed for privacy
 TIME=10
 
 URL="https://api.telegram.org/bot$TOKEN/sendMessage"
