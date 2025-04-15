@@ -1,0 +1,16 @@
+services:
+  server_6:
+    build: .
+    container_name: server_6
+    ports:
+      - "8080:81"
+    
+  proxy_6:
+    image: nginx:latest
+    container_name: proxy_6
+    ports:
+      - "80:8080"
+    depends_on:
+      - server_6
+    volumes:
+      - ./part6_nginx/nginx.conf:/etc/nginx/nginx.conf:ro
