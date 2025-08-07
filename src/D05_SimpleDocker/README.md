@@ -2,118 +2,7 @@
 
 Introduction to docker. Developing a simple docker image for your own server.
 
-The russian version of the task can be found in the repository.
-
-## Contents
-
-1. [Chapter I](#chapter-i)
-2. [Chapter II](#chapter-ii) \
-    2.1. [nginx](#nginx) \
-    2.2. [Docker](#docker) \
-    2.3. [Dockle](#dockle)
-3. [Chapter III](#chapter-iii) \
-    3.1. [Ready-made docker](#part-1-ready-made-docker) \
-    3.2. [Operations with container](#part-2-operations-with-container) \
-    3.3. [Mini web server](#part-3-mini-web-server) \
-    3.4. [Your own docker](#part-4-your-own-docker) \
-    3.5. [Dockle](#part-5-dockle) \
-    3.6. [Basic Docker Compose](#part-6-basic-docker-compose)
-
-
-## Chapter I
-
-![simple_docker](misc/images/simple_docker.png)
-
-Planet Earth, somewhere in the middle of the sea, today.
-
-You never liked to move. Lots of fuss, little action. But you managed to find a great job in another city to immerse yourself in the DevOps world.
-And you're not one to let a little trouble ruin your plans.
-
-From your cabin window, you hear the sound of the waves, the ship peacefully rocking on them, and you remember your favourite novel about the sea - "Moby Dick".
-Although the plot is far from straightforward, with many lyrical digressions and philosophical musings, you, like everyone else, associate this book primarily with Moby Dick himself - the white whale.
-
-"Hmm... White whale..." This is where you remember that during the long voyage you wanted to work on the dock.
-
-
-## Chapter II
-
-### **nginx**
-
-**nginx** (pronounced "engine-x") is an open-source reverse proxy server for HTTP, HTTPS, etc. **nginx** is also used as a load balancer, web server and for HTTP caching. The **nginx** project focuses on high parallelism, high performance and low memory usage.
-
-
-**nginx** has one main process and several worker processes.
-The primary task of the main process is to read and check the configuration and manage the worker processes.
-The worker processes perform the actual processing of the requests.
-
-How **nginx** and its modules work is defined in the configuration file. By default, the configuration file is called *nginx.conf*
-
-### **Docker**
-
-A container is a new "executable file" that includes all the dependencies the product needs.
-
-The main advantage of containerisation is the isolation of dependencies and a single, simple software start-up point.
-
-Basic terms:
-- Docker image - the "package" for the application and dependencies (including system ones).
-- Container - an instance of an image, i.e. a 'alive' image.
-
-**Docker** is a platform that is designed to develop, deploy and run applications in containers.
-**Docker** is the 'de-facto' standard containerisation tool in the industry, but it is not the first or last among containerisation technologies.
-
-The forerunners of **Docker** containers were virtual machines.
-A virtual machine, like a container, isolates the application and its dependencies from the outside environment.
-However, **Docker** containers have advantages over virtual machines.
-For example, they are very easy to port, consume fewer resources, start and run faster.
-
-A docker image consists of layers. Each layer describes some change to be performed to the data on the running container.
-The structure of links between layers is hierarchical. There is a base layer on which the other layers are "overlaid".
-The *Dockerfile* is used to create an image. Each instruction in it creates a new layer.
-
-### **Dockle**
-
-**Dockle** is a container image security checking tool that can be used to find vulnerabilities.
-
-Key features and benefits of **Dockle**:
-- searches for vulnerabilities in images;
-- helps in creating a proper Dockerfile;
-- easy to use, you only need to specify the image name;
-- support for *CIS Benchmarks*.
-
-### **Docker Compose**
-
-Docker Compose is a tool for handling tasks related to projects deployment.
-Docker Compose can be helpful if several services are used to keep the project running.
-
-Docker Compose is used to simultaneously manage multiple containers that are part of an application.
-This tool offers the same features as Docker, but allows to work with more complex distributed applications, e.g. microservices.
-
-
-## Chapter III
-
-As a result of the work you should provide a report on the first two tasks. Each part of the task describe what should be added to the report once it has been completed. This can be answers to questions, screenshots, etc.
-
-As a result of the third task you should provide source files for running the web server.
-
-As a result of the fourth and fifth tasks you should provide dockerfiles.
-
-As a result of the sixth task you should provide a *docker-compose.yml* file and the dockerfiles needed to run it (if not provided earlier).
-
-- A report with a .md extension must be uploaded to the repository, in the src folder;
-- All parts of the task should be highlighted in the report as level 2 headings;
-- Within one part of the task, everything that is added to the report must be in the form of the list;
-- Each screenshot in the report must be briefly captioned (what’s in the screenshot);
-- All screenshots must be cropped so that only the relevant part of the screen is shown;
-- It’s allowed to have several task points shown in one screenshot, but they must all be described in the caption;
-- Source files for running the web server from the third task should be uploaded to the repository, in the src/server folder;
-- Dockerfiles from the fourth and fifth tasks should be uploaded to the repository, in the src folder;
-- *docker-compose.yml* from the sixth task should be uploaded to the repository, in the src folder;
-- Be prepared to demonstrate your work if necessary.
-
 ## Part 1. Ready-made docker
-
-As the final goal of your little practice you have immediately chosen to write a docker image for your own web server, so first you need to deal with a ready-made docker image for the server.
-You chose a pretty simple **nginx**.
 
 **== Task ==**
 
@@ -133,12 +22,8 @@ You chose a pretty simple **nginx**.
 - Add the following screenshots to the report:
     - the call and output of all commands used in this part of the task;
     - **nginx** start page at *localhost:80* (address must be shown).
-    
-*Note:* **Don't upload heavy files (>10 mb) to git.**
 
 ## Part 2. Operations with container
-
-Docker image and container are ready. Now we can look into **nginx** configuration and display page status.
 
 **== Task ==**
 
@@ -164,8 +49,6 @@ Docker image and container are ready. Now we can look into **nginx** configurati
 
 ## Part 3. Mini web server
 
-It's time to take a little break from the docker to prepare for the last stage. It's time to write your own server.
-
 **== Task ==**
 
 ##### Write a mini server in **C** and **FastCgi** that will return a simple page saying `Hello World!`.
@@ -175,8 +58,6 @@ It's time to take a little break from the docker to prepare for the last stage. 
 ##### Put the *nginx.conf* file under *./nginx/nginx.conf* (you will need this later).
 
 ## Part 4. Your own docker
-
-Now everything is ready. You can start writing the docker image for the created server.
 
 **== Task ==**
 
@@ -199,8 +80,6 @@ _**nginx** can be installed inside the docker itself, or you can use a ready-mad
 
 ## Part 5. **Dockle**
 
-Once you've written the image, it's never a bad idea to check it for security.
-
 **== Task ==**
 
 ##### Check the image from the previous task with `dockle [image_id|repository]`.
@@ -208,9 +87,6 @@ Once you've written the image, it's never a bad idea to check it for security.
 
 
 ## Part 6. Basic **Docker Compose**
-
-There, you've finished your warm-up. Wait a minute though...
-Why not try experimenting with deploying a project consisting of several docker images at once?
 
 **== Task ==**
 
@@ -221,6 +97,3 @@ Why not try experimenting with deploying a project consisting of several docker 
 ##### Stop all running containers.
 ##### Build and run the project with the `docker-compose build` and `docker-compose up` commands.
 ##### Check that the browser returns the page you wrote on *localhost:80* as before.
-
-
-💡 [Tap here](https://forms.yandex.ru/cloud/6418195450569020f1f159c4/) **to leave your feedback on the project**. Product Team really tries to make your educational experience better.
